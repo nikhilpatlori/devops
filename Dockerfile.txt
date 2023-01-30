@@ -1,4 +1,6 @@
-FROM scratch
-workdir /app
-ADD ubuntu-focal-oci-amd64-root.tar.gz /
-CMD ["bash"]
+# Filename: Dockerfile 
+FROM node:10-alpine
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
